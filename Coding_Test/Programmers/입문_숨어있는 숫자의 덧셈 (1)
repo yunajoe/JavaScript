@@ -1,0 +1,11 @@
+function solution(my_string) {
+    var answer = 0;
+    let string_arr = [...my_string];
+    string_arr.forEach(function(num){
+        num = parseInt(num)  
+        if(isNaN(num) == false){
+            answer += num;
+        }          
+    })
+  return answer
+}
