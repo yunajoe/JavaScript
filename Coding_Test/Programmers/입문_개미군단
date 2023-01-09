@@ -1,0 +1,23 @@
+function solution(hp) {
+    let answer=0;
+    let first = 5; 
+    let second = 3; 
+    let third = 1; 
+    if(hp < third){ // hp가  0일때는 
+        answer = 0;
+    }else{
+        while(hp >=first){           
+            hp = parseInt(hp / first);
+            answer += hp;             
+        }
+        if(second <= hp && first > hp){
+          while(hp >=second){
+             hp = parseInt(hp / second); 
+             answer += hp;            
+            }             
+        }       
+
+   }
+
+   return answer   
+}
