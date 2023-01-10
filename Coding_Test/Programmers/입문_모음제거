@@ -1,0 +1,7 @@
+function solution(my_string) {
+    var answer = '';
+    var vowel_arr = ['a','e','i','o','u']
+    var str_arr = [...my_string]
+    str_arr = str_arr.filter((letter) => !vowel_arr.includes(letter))
+    return str_arr.join('');
+}
