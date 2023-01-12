@@ -9,3 +9,8 @@ function solution(n, numlist) {
     }
     return numlist;
 }     
+
+
+# N의 배수 고르기 
+
+const solution = (n, numlist) => numlist.filter(a => a%n ===0)
