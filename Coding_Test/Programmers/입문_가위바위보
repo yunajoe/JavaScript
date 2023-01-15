@@ -1,0 +1,19 @@
+function sol(hands) {
+    var s = "2"
+    var r = "0"
+    var p = "5"       
+    if(hands === s){
+        return r
+    }else if(hands === r){          
+        return p 
+    }else{
+        return s  
+    }     
+}  
+function solution(rsp) {
+    var answer = '';
+    for (let i in rsp ){
+        answer += sol(rsp[i]); 
+    }   
+  return answer 
+}
