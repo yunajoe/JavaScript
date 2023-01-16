@@ -1,4 +1,5 @@
 
+// 첫번째 시도 
 function solution(cipher, code){
     var answer = ''; 
     var cipher_arr = [...cipher]
@@ -8,3 +9,16 @@ function solution(cipher, code){
     return answer  
 }
 
+
+// 두번째 시도
+function solution(cipher, code){
+    var answer = new Array(); 
+    var cipher_arr = [...cipher]
+    for(let i=0; i<=cipher_arr.length; i++){
+       if( (i+1) % code ===0){
+           answer.push(cipher_arr[i])
+       }
+    }
+    return answer.join('')
+
+}
