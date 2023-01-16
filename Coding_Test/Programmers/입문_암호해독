@@ -1,0 +1,10 @@
+
+function solution(cipher, code){
+    var answer = ''; 
+    var cipher_arr = [...cipher]
+    for(let i=code-1; i<=cipher_arr.length ; i += code){
+        answer += cipher_arr[i]
+    }
+    return answer  
+}
+
