@@ -13,3 +13,39 @@ function solution(my_string) {
     } 
     return answer
 }
+
+
+# 다른풀이 
+- for of로 풀기
+function solution(my_string) {
+    let answer = ''; 
+    for(let str of my_string){
+        if(str === str.toUpperCase()){
+            answer += str.toLowerCase()
+        }else{
+            answer += str.toUpperCase()
+        }
+    }
+    return answer
+}
+
+
+# 다른풀이 
+- 3항연산자로 풀기 
+function solution(my_string) {
+    var answer = '';
+    for(let str of my_string) answer += str === str.toLowerCase() ? str.toUpperCase() : str.toLowerCase();
+    return answer;
+}
+
+
+# 다른풀이
+- map으로 풀기 
+function solution(my_string) {
+    var answer = '';
+    return my_string.split('').map(str => str === str.toUpperCase() ? str.toLowerCase() : str.toUpperCase()).join('')
+}
+
+
+
+
