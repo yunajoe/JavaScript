@@ -1,0 +1,13 @@
+
+function solution(my_string) {
+    var answer = [];      
+    const arr = [...my_string];
+    arr.forEach(function(ele){
+        ele = parseInt(ele)
+        if(isNaN(ele) == false){
+            answer.push(ele)
+        }
+    })
+    return answer.sort()
+ 
+}
