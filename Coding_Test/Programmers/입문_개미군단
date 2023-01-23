@@ -21,3 +21,38 @@ function solution(hp) {
 
    return answer   
 }
+
+
+// 다른풀이  
+function solution(hp) {
+    // 나머지가 0일될까지 .. 나누면 됨 
+    var answer = 0;
+    let king = 5; 
+    let solider = 3; 
+    let worker = 1;     
+    let original_hp = hp;
+    let r;
+    var answer;
+    if(hp>=king){
+        while(hp >= king){
+            hp = Math.floor( hp / king)
+            r  =  original_hp % king   
+            answer += hp
+        }
+        if(hp >=solider){
+          while(hp >=solider){
+              hp = Math.floor(hp / solider)
+              r  = r % solider 
+              answer += hp  
+          }
+          if(hp>=worker){
+            while(r !==0){
+            hp = Math.floor(hp / worker) 
+            r = r % worker 
+            answer += hp             
+             }              
+          }         
+        }            
+      }
+      return answer          
+    }
