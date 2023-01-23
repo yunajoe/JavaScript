@@ -17,11 +17,9 @@ function solution(hp) {
             }             
         }       
 
-   }
-
+   }  
    return answer   
-}
-
+}  
 
 // 다른풀이  
 function solution(hp) {
@@ -56,3 +54,6 @@ function solution(hp) {
       }
       return answer          
     }
+
+정확성: 19.4
+합계: 19.4 / 100.0
