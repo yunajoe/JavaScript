@@ -1,1 +1,31 @@
 
+function solution(numbers) {
+    var answer = 1;
+    var  minus_arr = new Array(); 
+    var  plus_arr = new Array();
+    numbers.forEach((number, index, array) =>{
+        if(number >= 0){
+             plus_arr.push(number)              
+        }else{
+            minus_arr.push(number)              
+        }            
+    })    
+    plus_arr.sort( function(a,b) {return b-a});
+    minus_arr.sort( function(a,b) {return a-b}); 
+    [p1, p2, ...rest] = plus_arr;
+    [m1, m2, ...rest] = minus_arr;      
+    //  음수배열이 없을 때는 플러스만 고려
+    if(minus_arr.length <=1){
+        answer = p1 * p2
+    }else{
+        if(p1 * p2 >= m1 * m2){
+            answer = p1 * p2 
+        }else{
+            answer = m1 * m2
+        }
+    }       
+    return answer     
+}
+
+정확성: 91.7
+합계: 91.7 / 100.0
