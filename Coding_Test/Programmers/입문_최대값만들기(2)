@@ -29,8 +29,7 @@ function solution(numbers) {
 
 정확성: 91.7
 합계: 91.7 / 100.0
-==========================================
-
+==========================================  
 다른풀이  
 function solution(numbers) {
     var answer = 1;
@@ -63,8 +62,9 @@ function solution(numbers) {
            
         }
         return answer
-    }
-
+    }  
 
 정확성: 100.0
-합계: 100.0 / 100.0
+합계: 100.0 / 100.0   
+
+
