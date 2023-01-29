@@ -1,0 +1,24 @@
+function solution(numbers) {
+    // months.splice(1, 0, 'Feb');
+    var answer = [];
+    for(let i =0; i<=numbers.length-1; i++) {       
+        for(let j=i+1; j<=numbers.length-1; j++){
+            if(numbers[i] < numbers[j]){                   
+                answer.splice(i,0, numbers[j]) 
+                break                 
+            }else{
+              answer.splice(i,0,-1)               
+            }
+        }
+    }
+    if(answer.length === numbers.length){
+        return answer
+    }else{
+        
+        return answer.splice(0,numbers.length)
+    }
+}
+
+
+정확성: 26.1
+합계: 26.1 / 100.0
