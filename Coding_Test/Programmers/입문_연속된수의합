@@ -1,0 +1,37 @@
+
+function solution(num, total) {
+    let arr = Array()
+    let q; 
+    let p;    
+    if( total % num === 0){
+        q = total / num 
+        p = total / num
+    }else{
+        q = Math.floor(total / num)
+        p = Math.floor(total / num)
+    } 
+    idx_loc = (num -1) /  2
+    arr.splice(idx_loc, 1, q)          
+  
+    let point = (num -1 ) / 2
+    let cnt1 = 0; 
+    let cnt2 = 0;
+    let before_arr = Array(); 
+    let after_arr = Array();
+
+    while(cnt1 != point){
+        before_arr.push(q-1)
+        cnt1  += 1
+        q -= 1
+    }   
+
+    while(cnt2 != point){
+        after_arr.push(p+1)
+        cnt2  += 1
+        p += 1
+    }  
+   return before_arr.concat(arr, after_arr)
+   
+ }  
+
+합계: 40.0 / 100.0
