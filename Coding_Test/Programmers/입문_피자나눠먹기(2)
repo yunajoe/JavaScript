@@ -1,0 +1,31 @@
+//  최소 몇 판을 시켜야 하는지를 return 
+//  n이 6조각 이상 되면은,  n % 6 해서 나머지 + 1 
+//  n 이 6 미만이면은  4 와 6의 최소공배수를 구하고 6 으로 나눈 몫 
+//  최소공배수 = a * b / 최대공약수;   
+// 최대공약수는 유클리드 호제법을 사용하여 구함
+
+function lcm(a,b){     
+    if(b === 0) return a; 
+    return lcm(b, a % b); 
+}     
+
+function gcd(a,b){
+    const lcm_num = lcm(a,b)
+    const gcd_num = (a * b) /  lcm_num; 
+    return gcd_num;   
+} 
+
+function solution(n) {  
+    var gcd_num;
+    if(n >= 6){
+        gcd_num = (n % 6) + 1
+    }else{
+     gcd_num = gcd(n,6) 
+     gcd_num = gcd_num / 6       
+    }
+    return gcd_num  
+}
+
+
+정확성: 46.2
+합계: 46.2 / 100.0
