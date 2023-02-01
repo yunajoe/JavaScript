@@ -29,3 +29,26 @@ function solution(n) {
 
 정확성: 46.2
 합계: 46.2 / 100.0
+
+
+=======================================================================
+
+
+// 6과 n(사람수)의 최소 공배수를 구한다음, 최소 공배수를 6으로 나눈 몫
+function lcm(a,b){     
+    if(b === 0) return a; 
+    return lcm(b, a % b); 
+}     
+
+function gcd(a,b){
+    const lcm_num = lcm(a,b)
+    const gcd_num = (a * b) /  lcm_num; 
+    return gcd_num;   
+} 
+
+function solution(n) {  
+    // 6과 n의 최소공배수 
+    var gcd_num = gcd(6, n)
+    return gcd_num / 6   
+}
+
