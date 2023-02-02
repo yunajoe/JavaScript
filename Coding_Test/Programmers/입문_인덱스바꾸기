@@ -1,0 +1,20 @@
+# 나의 풀이 
+function solution(my_string, num1, num2) {
+    const value = my_string.substring(num1,num2+1)       
+    const first = my_string.charAt(num1)
+    const second = my_string.charAt(num2)
+    const between = my_string.substring(num1+1, num2)
+    const before = my_string.slice(0,num1)
+    const after = my_string.slice(num2+1)      
+    return before+second+between+first+after
+}  
+
+
+# 다른 사람풀이 
+- destructing  이용하기
+function solution(my_string, num1, num2) {
+    my_string = my_string.split('');
+    [my_string[num1], my_string[num2]] = [my_string[num2], my_string[num1]]; 
+    return my_string.join('');
+   
+}
