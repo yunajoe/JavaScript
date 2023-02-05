@@ -15,6 +15,5 @@ function solution(order) {
 
 # 다른사람풀이
 function solution(order) {
-    return Array.from(order.toString()).filter((el) => ['3','6','9'].includes(el)).length    
-  
+    return Array.from(order.toString()).filter((el) => ['3','6','9'].includes(el)).length  
 }
