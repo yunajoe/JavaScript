@@ -1,1 +1,17 @@
 
+// 중복된글자들을 일단 찾는다 
+// 찾은 글자들의 인덱스를 찾는다 
+
+function solution(my_string) {
+    let duplcated_arr  = new Array();
+    var answer = [...my_string]
+    for (let i=0; i<answer.length; i++){
+        for (let j=i+1; j<answer.length; j++){
+            if(answer[i] == answer[j])
+                duplcated_arr.push(j)
+        }
+      
+    }
+    return set(duplcated_arr)
+
+}
