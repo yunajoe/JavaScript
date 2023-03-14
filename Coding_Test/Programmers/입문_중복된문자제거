@@ -12,6 +12,6 @@ function solution(my_string) {
         }
       
     }
-    return set(duplcated_arr)
+    return set(duplcated_arr) # 3,5
 
 }
