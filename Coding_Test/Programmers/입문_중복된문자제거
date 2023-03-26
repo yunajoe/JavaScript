@@ -1,40 +1,29 @@
-
-// 중복된글자들을 일단 찾는다 
-// 찾은 글자들의 인덱스를 찾는다 
-
+function makeResult(Obj){  
+    let result = {};
+    for (const [key, value] of Object.entries(Obj)) { 
+          if (key === "undefined") continue;
+          if (value.length >= 2) {
+            const newValue = Array.from(value);
+            //  remove all the elements after 0 index
+            newValue.splice(1);
+            result[key] = newValue;
+          } else {
+            result[key] = value;
+          }
+    }    
+    return result
+}     
 function solution(my_string) {
-    let duplcated_arr  = new Array();
-    var answer = [...my_string]
-    for (let i=0; i<answer.length; i++){
-        for (let j=i+1; j<answer.length; j++){
-            if(answer[i] == answer[j])
-                duplcated_arr.push(j)
+    let arr = [...my_string] 
+    let dic = {}
+    for(let i=0; i<=arr.length; i++){
+        // dic[arr[i]]  ==> undefiend 가 나옴.. 
+        if(!dic[arr[i]]) {     
+            dic[arr[i]] = []               
         }
-      
-    }
-    return set(duplcated_arr) # 3,5
-
-}
-
-// 추가 
-
-idx_list = [5, 9, 6, 10, 13, 9, 10];
-s_arr = [...s];
-
-const join_func = function (arr) {
-  return arr.join("");
-};
-
-const regex = function (str) {
-  let regex = /\*/g;
-  let result = str.replace(regex, "");
-  return result;
-};
-
-for (let i = 0; i < idx_list.length; i++) {
-  s_arr.splice(idx_list[i], 1, "*");
-  result = join_func(s_arr);
-  let final = result.replace("*", "");
-  let answer = regex(final);
-  console.log(answer);
+        dic[arr[i]].push(i)          
+    }    
+    let result =  makeResult(dic)
+    let answer = Object.keys(result).join("")
+    return answer
 }
