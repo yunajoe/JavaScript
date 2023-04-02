@@ -16,3 +16,17 @@ function solution(num_list, n) {
   }
   return outer;
 }
+// 다른 사람풀이
+function solution(num_list, n) {
+  let outer = [];
+  for (let i = 0; i < num_list.length; ) {
+    let inner = [];
+    for (let j = 0; j < n; j++) {
+      inner.push(num_list[i]);
+      // 뽀인트! 여기서 i가 1씩 증가
+      i++;
+    }
+    outer.push(inner);
+  }
+  return outer;
+}
