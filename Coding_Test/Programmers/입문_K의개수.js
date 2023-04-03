@@ -1,5 +1,4 @@
 function splitIntoArrayandCount(num) {
-  // x || y  if X can be converted to true, return x otherwise, return y
   const count = {};
   const arr = Array.from(String(num));
   for (let i = 0; i < arr.length; i++) {
@@ -19,4 +18,3 @@ function solution(i, j, k) {
   }
   return cnt;
 }
-console.log(solution(10, 50, 5));
