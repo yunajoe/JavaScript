@@ -11,3 +11,14 @@ function solution(array) {
   });
   return answer;
 }
+
+// 다른풀이
+function solution(array) {
+  var answer = 0;
+  return array
+    .join("")
+    .split("")
+    .filter((num) => {
+      return num === "7";
+    }).length;
+}
