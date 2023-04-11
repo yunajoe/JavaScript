@@ -17,3 +17,20 @@ function solution(s) {
   }
   return result.sort().join("");
 }
+
+// 다른풀이
+function solution(s) {
+  let sArr = s.split("").sort();
+  var answer = [];
+  while (sArr.length) {
+    let first = sArr.shift();
+    if (first === sArr[0]) {
+      while (first === sArr[0]) {
+        sArr.shift();
+      }
+    } else {
+      answer.push(first);
+    }
+  }
+  return answer.join("");
+}
