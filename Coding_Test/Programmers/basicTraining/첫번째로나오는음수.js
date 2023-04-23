@@ -21,3 +21,16 @@ function solution(num_list) {
 
 // 정확성: 100.0;
 // 합계: 100.0 / 100.0;
+
+// sol3
+
+function solution(num_list) {
+  let arr = [];
+  for (let i = 0; i < num_list.length; i++) {
+    if (num_list[i] < 0) {
+      arr.push(i);
+      return arr[0];
+    }
+  }
+  return -1;
+}
