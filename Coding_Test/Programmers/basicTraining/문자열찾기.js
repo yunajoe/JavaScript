@@ -12,3 +12,8 @@ function solution(myString, pat) {
     return myString.includes(pat) ? 1 : 0;
   }
 }
+
+// sol2
+function solution(myString, pat) {
+  return myString.toUpperCase().includes(pat.toUpperCase()) ? 1 : 0;
+}
