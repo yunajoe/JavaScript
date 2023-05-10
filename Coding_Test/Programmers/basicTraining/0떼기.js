@@ -16,3 +16,21 @@ function solution(n_str) {
     return strCopy.join("");
   }
 }
+
+// sol2
+const solution = (str) => String(Number(str));
+
+// sol3
+function solution(n_str) {
+  let result = "";
+  let arr = n_str.split("");
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[0] !== "0") {
+      result = n_str;
+      break;
+    } else {
+      result = Number(n_str).toString();
+    }
+  }
+  return result;
+}
