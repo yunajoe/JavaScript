@@ -11,5 +11,5 @@ function solution(str1, str2) {
   return 0;
 }
 
-// 다른풀이
+// sol2)
 const solution = (str1, str2) => (str2.includes(str1) ? 1 : 0);
