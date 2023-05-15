@@ -15,29 +15,25 @@ function solution(a, b, c) {
   }
 }
 
-// sol2
-// a,b,c 를 set한 다음에
-// mySet2 = new Set([1, 2, 3, 4]);
-// a,b,c 를 set한 다음에
-// mySet2 = new Set([1, 2, 3, 4]);
 function solution(a, b, c) {
-  const calculate = (nums, n) => {
-    const [a, b, c] = nums;
-    let result = 1;
+  const calculate = (n) => {
+    let answer = 1;
     for (let i = 1; i <= n; i++) {
-      result = result * (a ** i + b ** i + c ** i);
+      answer *= a ** i + b ** i + c ** i;
     }
-    return result;
+    return answer;
   };
 
   const setArr = new Set([a, b, c]);
   switch ([...setArr].length) {
+    // a,b,c가 모두 같을때
     case 1:
-      return calculate(setArr, 3);
-      break;
+      return calculate(3);
+    // a,b,c 중 2개만 같을때
     case 2:
-      return calculate(setArr, 2);
+      return calculate(2);
+    //a,b,c가 모두 다를때
     case 3:
-      return calculate(setArr, 1);
+      return calculate(1);
   }
 }
