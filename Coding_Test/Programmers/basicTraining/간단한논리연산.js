@@ -6,3 +6,8 @@ function solution(x1, x2, x3, x4) {
   let result2 = x3 || x4;
   return result1 && result2;
 }
+
+//sol2
+const solution = (x1, x2, x3, x4) => {
+  return (x1 || x2) && (x3 || x4);
+};
