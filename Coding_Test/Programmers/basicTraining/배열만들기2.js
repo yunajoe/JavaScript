@@ -27,4 +27,33 @@ function solution(l, r) {
 }
 
 // 정확성: 45.5;
-// 합계: 45.5 / 100.0;
+// 합계: 45.5 / 100.0;   
+
+//sol2)   
+// 범위가 l이상 r이하의 정수를 구한다
+//  (5의 배수 또는 10의 배수를 구한다 )
+// 정수가 5 또는 0 을 includes하는지 check 한개라도 
+function isIncluded(ele){
+  return ele === 5 || ele === 0
+}      
+function solution(l, r) {
+  let index_arr = []
+  let num_arr =[]
+  for(let i=l; i<=r; i++){
+      if(i % 5 === 0 || i % 10 ===0){
+          let arr = i.toString().split('').map((ele) => Number(ele))             
+          index_arr.push(arr.every(isIncluded))
+          num_arr.push(arr)
+      }
+  }
+  // l부터 r범위 사이에 수들중에서 위의 조건(5또는 10으로 나눠지는 수 중에서 그 수가 5나 0으로만 이루어진)에 만족하는 수들의 인덱스      
+  let new_index_arr = index_arr.map((bol, idx) =>{
+      if(bol === true){
+          return idx
+      }
+  }).filter((ele) => ele !== undefined)        
+  
+ return new_index_arr.length === 0 ? [-1] : new_index_arr.map((ele) => Number(num_arr[ele].join("")))      
+}
+
+
