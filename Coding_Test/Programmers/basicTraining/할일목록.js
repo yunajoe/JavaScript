@@ -9,3 +9,21 @@ function solution(todo_list, finished) {
     })
     .filter((todo) => todo != undefined);
 }
+
+// sol2)
+function solution(todo_list, finished) {
+  return todo_list.filter((ele, idx) => !finished[idx]);
+}
+
+//sol3)
+// ! (부정연산자)는 true => false, false=>ture로 바꿔준다
+// if문에서 if(x) >> 이것이 if(x===ture)를 의미하듯이 !if(x) 하면은 if(x===false)를 의미
+function solution(todo_list, finished) {
+  let answer = [];
+  for (let i = 0; i < todo_list.length; i++) {
+    if (!finished[i]) {
+      answer.push(todo_list[i]);
+    }
+  }
+  return answer;
+}
