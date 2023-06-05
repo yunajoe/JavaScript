@@ -54,6 +54,43 @@ function solution(l, r) {
   }).filter((ele) => ele !== undefined)        
   
  return new_index_arr.length === 0 ? [-1] : new_index_arr.map((ele) => Number(num_arr[ele].join("")))      
+}   
+
+// sol3)   
+function solution(l, r) {
+    const arr = Array.from(String(r)).fill(false)
+    arr[arr.length-1] = true
+    const result = []
+    while (!arr.every(v => v === false)) {
+        const num = Number(arr.map(v => v ? 5 : 0).join(''))
+        if (num >= l && num <= r) result.push(num)
+        for (let i = arr.length-1; i >= 0; i -= 1) {
+            arr[i] = !arr[i]
+            if (arr[i]) break
+        }
+    }
+    return result.length === 0 ? [-1] : result
+}
+
+// sol4) 
+// 숫자 5로 현혹시켰지만 사실 이건 이진수 문제임.
+function* gen50() {
+    let i = 1;
+
+    while(true) {
+        yield Number(Number(i).toString(2)) * 5;
+        i++;
+    }
+}
+function solution(l, r) {
+    const n = gen50();
+    let a = 0;
+    const arr = [];
+
+    while(a < l) { a = n.next().value; }
+    while(a <= r) { arr.push(a); a = n.next().value; }
+
+    return arr.length ? arr : [-1];
 }
 
 
