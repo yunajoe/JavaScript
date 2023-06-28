@@ -1,24 +1,34 @@
-/*
-my_string을 split하여 배열로 만든다 
-queries가 2dimensaion array인데 , 원소가 각각 배열로 되어있음
-그 각각의 배열은 slicing할 인덱스를 가지고 있다 
-ex) [2,3]> 2와 3까지 my_string을 split하여 배열로 만든것을 자른다음 스위치! ==> 바뀐 새로운 단어는  my_string이 되는것
-*/
-
 function solution(my_string, queries) {
-  let answer_string = my_string;
+  let answer;
   while (queries.length) {
-    let my_string_arr = [...answer_string];
-    let [start, end] = queries.shift();
-    let original = my_string_arr.slice(start, end + 1).join(""); // rm
-    let newWord = my_string_arr
-      .slice(start, end + 1)
-      .reverse()
-      .join(""); //mr
-    answer_string = answer_string.replace(original, newWord); // original 과 newWord를 replace한 새로운 문장
+    let Arr = [...my_string];
+    let range = queries.shift();
+    let [start, end] = range;
+    let replaceWords = Arr.slice(start, end + 1).reverse();
+    Arr.splice(start, end - start + 1, ...replaceWords);
+    my_string = Arr;
+    answer = Arr;
   }
-  return answer_string;
+  return answer.join("");
 }
 
-// 정확성: 68.0;
-// 합계: 68.0 / 100.0;
+// sol2)
+function solution(my_string, queries) {
+  let strArr = my_string.split("");
+  queries.forEach(([start, end]) => {
+    replacedWords = strArr.slice(start, end + 1);
+    strArr.splice(start, replacedWords.length, ...replacedWords.reverse());
+  });
+  return strArr.join("");
+}
+
+// sol3)
+function solution(my_string, queries) {
+  return queries
+    .reduce((acc, [start, end]) => {
+      let words = acc.slice(start, end + 1).reverse();
+      acc.splice(start, words.length, ...words);
+      return acc;
+    }, Array.from(my_string))
+    .join("");
+}
