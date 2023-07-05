@@ -1,5 +1,0 @@
-function solution(my_string) {
-    var lowerLetter = my_string.toLowerCase()
-    let arr = Array.from(lowerLetter).sort()
-    return arr.join("");
-}
