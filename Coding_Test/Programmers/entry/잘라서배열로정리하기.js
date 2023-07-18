@@ -11,6 +11,25 @@ function solution(my_str, n) {
       strings = "";
     }
   }
+  result.push(strings);
+  return result.filter((str) => str !== "");
+}
 
-  return result;
+// sol2)
+function solution(my_str, n) {
+  let answer = [];
+  for (let i = 0; i < my_str.length; i += n) {
+    const newStr = my_str.substr(i, n);
+    answer.push(newStr);
+  }
+  return answer;
+}
+
+//sol3)
+function solution(my_str, n) {
+  let answer = [];
+  for (let i = 0; i < my_str.length; i += n) {
+    answer.push(my_str.slice(i, i + n));
+  }
+  return answer;
 }
