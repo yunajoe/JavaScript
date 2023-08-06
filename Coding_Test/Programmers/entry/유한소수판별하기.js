@@ -13,6 +13,7 @@ let getMaxNum = (a, b) => {
   }
   return MaxNum;
 };
+
 function isPrime(num) {
   let arr = [];
   for (let i = 1; i <= num; i++) {
@@ -26,8 +27,12 @@ function isPrime(num) {
 function solution(a, b) {
   let gcd = getMaxNum(a, b);
   let denominator = b / gcd;
+  let Newdenominator = isPrime(denominator);
+
   let finalArr = isPrime(denominator).filter((ele) => {
     return isPrime(ele).length === 2;
   });
-  return finalArr.includes(2) || finalArr.includes(5) ? 1 : 2;
+  // 배열이 2와 5이외에 다른 원소가 있는지 확인?
+  // true면은 2, 5 원소이외에 다른 값이 있는지확인, true면은 있는거고 없으면 2또는 5만 있는거다
+  return finalArr.some((ele) => ele !== 2 && ele !== 5) ? 2 : 1;
 }
