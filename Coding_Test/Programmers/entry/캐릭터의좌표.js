@@ -123,3 +123,35 @@ function solution(keyinput, board) {
 }
 
 //합계: 63.6 / 100.0
+
+// sol2)
+function solution(keyinput, board) {
+  const result = [0, 0];
+  const width = Math.floor((board[0] - 1) / 2);
+  const height = Math.floor((board[1] - 1) / 2);
+
+  keyinput.forEach((num) => {
+    if (num === "left") {
+      result[0] -= 1;
+      if (Math.abs(result[0]) > width) {
+        result[0] += 1;
+      }
+    } else if (num === "right") {
+      result[0] += 1;
+      if (Math.abs(result[0]) > width) {
+        result[0] -= 1;
+      }
+    } else if (num === "up") {
+      result[1] += 1;
+      if (Math.abs(result[1]) > height) {
+        result[1] -= 1;
+      }
+    } else if (num === "down") {
+      result[1] -= 1;
+      if (Math.abs(result[1]) > height) {
+        result[1] += 1;
+      }
+    }
+  });
+  return result;
+}
