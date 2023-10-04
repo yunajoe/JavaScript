@@ -11,8 +11,12 @@ function solution(s) {
     if (firstIdx === lastIdx) {
       return -1;
     }
-    // 두개이상 있을 때
+    // 처음의 수, 즉 인덱스=0일때는 idx-1해버려서, 즉 idx=-1이 되어서 arr전체를 본다. 따라서 예외처리
+    if (idx === 0) {
+      return -1;
+    }
     let beforeIdx = arr.lastIndexOf(val, idx - 1);
+
     return beforeIdx === -1 ? beforeIdx : idx - beforeIdx;
   });
 }
