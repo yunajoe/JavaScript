@@ -1,27 +1,20 @@
-function solution(strings, n) {
-  let result = [];
-  let sortedArr;
-  let obj = strings.reduce((acc, str, idx) => {
-    str = str.toLowerCase();
-    let uniNum = str.replace(str, str[n].charCodeAt(0));
-    acc[uniNum] ? acc[uniNum].push(idx) : (acc[uniNum] = [idx]);
-    return acc;
-  }, {});
-  let sortedObj = Object.fromEntries(
-    Object.entries(obj).sort((a, b) => (Number(a[0]) > Number(b[0]) ? 1 : -1))
-  );
-
-  Object.values(sortedObj).forEach((arr, arrIdx) => {
-    if (arr.length > 1) {
-      sortedArr = arr.map((idx) => {
-        return strings[idx];
-      });
-      sortedArr.sort();
-      result[arrIdx] = sortedArr;
-    } else {
-      let value = strings[arr[0]];
-      result[arrIdx] = value;
+function solution(s) {
+  // 문자열에서 처음글자가 나오면은 -1
+  // 2번째부터 는 자신보다 먼저 나와있으면 가까운 글자와의 거리 (즉, 배열에서는 인덱스차이)를 return한다
+  // 우선 indexof랑 lastIndexof랑 해서 그 인덱스가 같지 않으면은 -1를
+  let arr = [...s];
+  return arr.map((val, idx, arr) => {
+    let firstIdx = arr.indexOf(val);
+    let lastIdx = arr.lastIndexOf(val);
+    // 하나밖에 없다는것
+    if (firstIdx === lastIdx) {
+      return -1;
     }
+    // 처음의 수, 즉 인덱스=0일때는 idx-1해버려서, 즉 idx=-1이 되어서 arr전체를 본다. 따라서 예외처리
+    if (idx === 0) {
+      return -1;
+    }
+    let beforeIdx = arr.lastIndexOf(val, idx - 1);
+    return beforeIdx === -1 ? beforeIdx : idx - beforeIdx;
   });
-  return [].concat(...result);
 }
