@@ -25,3 +25,19 @@ export const rotate = (str, num) => {
     })
     .join("");
 };
+
+// sol2)
+const convertLetter = (letter, initLetter, num) =>
+  String.fromCharCode(
+    ((letter.charCodeAt(0) - initLetter + num) % 26) + initLetter
+  );
+
+const rotate = (letters, num) => {
+  return letters
+    .replace(/[a-z]/g, (letter) =>
+      convertLetter(letter, "a".charCodeAt(0), num)
+    )
+    .replace(/[A-Z]/g, (letter) =>
+      convertLetter(letter, "A".charCodeAt(0), num)
+    );
+};
