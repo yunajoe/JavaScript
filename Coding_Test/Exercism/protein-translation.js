@@ -41,3 +41,30 @@ export const translate = (codon) => {
   }
   return arr;
 };
+
+
+// sol2) 
+const protein = {
+  Methionine: ["AUG"],
+  Phenylalanine: ["UUU", "UUC"],
+  Leucine: ["UUA", "UUG"],
+  Serine: ["UCU", "UCC", "UCA", "UCG"],
+  Tyrosine: ["UAU", "UAC"],
+  Cysteine: ["UGU", "UGC"],
+  Tryptophan: ["UGG"],
+  Stop: ["UAA", "UAG", "UGA"],
+};
+
+export const translate = (str="") => {
+  const codons = str.match(/.{1,3}/g) || []
+  let result = [];
+  for (const codon of codons) {
+    const targetProtein = Object.keys(protein).find((key) =>
+      protein[key].includes(codon)
+    );
+    if (targetProtein === "Stop") break
+    if (!targetProtein) throw new Error("Invalid codon");
+    result.push(targetProtein);
+  }
+  return result;
+};
