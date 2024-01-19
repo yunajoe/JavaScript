@@ -18,7 +18,7 @@ const isValidValue = (value) => value == null;
 const flatten2 = (arr) => {
   return arr.reduce((acc, ele) => {
     if (Array.isArray(ele)) {
-      return [...acc, ...flatten(ele)];
+      return [...acc, ...flatten2(ele)];
     } else if (!isValidValue(ele)) {
       return [...acc, ele];
     }
@@ -26,13 +26,13 @@ const flatten2 = (arr) => {
   }, []);
 };
 
-//sol3
-const isNil = (value) => value == null;
-const flatten3 = (collection) => {
-  collection.reduce((acc, ele) => {
+//  sol3)
+const isNaNValue = (value) => value == null;
+export const flatten3 = (arr) => {
+  return arr.reduce((acc, ele) => {
     return [
       ...acc,
-      ...(Array.isArray(ele) ? flatten(ele) : !isNanValue(ele) ? [ele] : []),
+      ...(Array.isArray(ele) ? flatten3(ele) : !isNaNValue(ele) ? [ele] : []),
     ];
   }, []);
 };
