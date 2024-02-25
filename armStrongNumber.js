@@ -34,6 +34,5 @@ const isArmstrongNumber3 = (num) => {
     let x = result.pop();
     answer += Math.pow(x, powNum);
   }
-
   return answer === num;
 };
