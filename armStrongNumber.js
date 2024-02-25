@@ -13,10 +13,12 @@ const isArmstrongNumber = (num) => {
 
 // sol2)
 const isArmstrongNumber2 = (num) => {
-  return [...`${num}`].reduce((acc, item, _, { length }) => {
-    acc += item ** length;
-    return acc;
-  }, 0);
+  return (
+    [...`${num}`].reduce((acc, item, _, { length }) => {
+      acc += item ** length;
+      return acc;
+    }, 0) === num
+  );
 };
 
 // sol3)
